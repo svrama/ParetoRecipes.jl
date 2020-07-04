@@ -9,9 +9,7 @@
 
 
 ## Summary
-ParetoRecipes contains recipes for generating Pareto plots from a set of points in multiobjective optimization problems.  It is inspired by the macros in [GraphRecipes.jl](https://github.com/JuliaPlots/GraphRecipes.jl).
-
-ParetoRecipes is a lightweight package that focuses only on the simplest use case of generating results: plotting Pareto fronts along with the original set of points.  Such plots are sometimes colloquially called "Paretos" (not to be confused with various Pareto distributions as in [Distributions.jl](https://github.com/JuliaStats/Distributions.jl)).
+ParetoRecipes generates Pareto plots from a set of points in a multiobjective optimization problem using [Plots.jl](https://github.com/JuliaPlots/Plots.jl).  A Pareto plot consists of the set of points together with a [Pareto front](https://en.wikipedia.org/wiki/Pareto_efficiency) (alternatively, Pareto frontier or Pareto set).  Colloquially, we will refer to such plots as _Paretos_.
 
 ParetoRecipes does _not_ focus on the multiobjective optimization itself, or even on breadth of exact and approximate algorithms to trace out Pareto fronts for optimization problems.  You can find such features and more in the [MultiJuMP](https://github.com/anriseth/MultiJuMP.jl) package.
 
@@ -25,3 +23,17 @@ using Plots
 
 pareto([[1, 0], [0, 1], [1, 1], [2, 2]])
 ```
+
+## Implementation: Recipes
+
+Thomas Breloff (@tbreloff) created the lightweight [RecipesBase](https://github.com/JuliaPlots/RecipesBase.jl) package that inspired the design of ParetoRecipes.
+
+ParetoRecipes offers a set of _recipes_.  Recipes abstract away the dependencies on plotting libraries like [Plots.jl](https://github.com/JuliaPlots/Plots.jl).  Each recipe is a `@recipe` macro from [RecipesBase](https://github.com/JuliaPlots/RecipesBase.jl).  There are different kinds of `@recipe`s; the `@recipe` for a Pareto plot in ParetoRecipes is a _series recipe_ (`@series`) that composes a scatter plot (`:scatter`) and a line plot (`:path`).
+
+Thomas's [GraphRecipes.jl](https://github.com/JuliaPlots/GraphRecipes.jl) repo has many additional examples of the power of series recipes.
+
+## Disambiguation
+ParetoRecipes does not currently support other concepts named after the economist [Vilfredo Pareto](https://en.wikipedia.org/wiki/Vilfredo_Pareto):
+- [Pareto Charts](https://en.wikipedia.org/wiki/Pareto_chart): a different kind of visualization whose series recipe would consist of a sorted histogram composed with a cumulative line plot
+- [Pareto Distributions](https://en.wikipedia.org/wiki/Pareto_distribution): offered in [Distributions.jl](https://github.com/JuliaStats/Distributions.jl)
+
