@@ -1,0 +1,13 @@
+name = "ParetoRecipes"
+uuid = "71a409db-0c41-4225-8938-aaf295661ce5"
+authors = ["Saketh Rama"]
+version = "0.1.0"
+
+[compat]
+julia = "1.4"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
