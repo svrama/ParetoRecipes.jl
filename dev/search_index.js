@@ -1,0 +1,3 @@
+var documenterSearchIndex = {"docs":
+[{"location":"","page":"Home","title":"Home","text":"CurrentModule = ParetoRecipes","category":"page"},{"location":"#ParetoRecipes","page":"Home","title":"ParetoRecipes","text":"","category":"section"},{"location":"","page":"Home","title":"Home","text":"","category":"page"},{"location":"","page":"Home","title":"Home","text":"Modules = [ParetoRecipes]","category":"page"},{"location":"#ParetoRecipes.pareto_front","page":"Home","title":"ParetoRecipes.pareto_front","text":"Compute the Pareto front of a set of points.\n\nUses an inefficient brute-force exact method.\n\nThe Pareto front is also known as the Pareto frontier or Pareto set.\n\n\n\n\n\n","category":"function"}]
+}
