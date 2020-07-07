@@ -14,6 +14,8 @@ Currently, ParetoRecipes only supports two-dimensional (2D) Paretos with an extr
 
 ## Example
 
+We plot a simple Pareto for a minimization problem with four points: (1, 0), (0, 1), (1, 1), and (2, 2).  The Pareto front consists of the first two points, (1, 0) and (0, 1).
+
 ```julia
 using ParetoRecipes
 using Plots
@@ -21,10 +23,11 @@ using Plots
 pareto([[1, 0], [0, 1], [1, 1], [2, 2]])
 ```
 
+![Pareto with four points using PGFPlotsX backend](./assets/pareto-fourpoints.png "Pareto with four points using PGFPlotsX backend")
 
 ## Implementation: Recipes
 
-Thomas Breloff (@tbreloff) created the lightweight [RecipesBase](https://github.com/JuliaPlots/RecipesBase.jl) package that inspired the design of ParetoRecipes.
+Thomas Breloff ([@tbreloff](https://github.com/tbreloff)) created the lightweight [RecipesBase](https://github.com/JuliaPlots/RecipesBase.jl) package that inspired the design of ParetoRecipes.
 
 ParetoRecipes offers a set of _recipes_.  Recipes abstract away the dependencies on plotting libraries like [Plots.jl](https://github.com/JuliaPlots/Plots.jl).  Each recipe is a `@recipe` macro from [RecipesBase](https://github.com/JuliaPlots/RecipesBase.jl).  There are different kinds of recipes. The `@recipe` for a Pareto plot in ParetoRecipes is a _series recipe_ (`@series`) that composes two plots: a scatter plot (`:scatter`) and a line plot (`:path`).
 
